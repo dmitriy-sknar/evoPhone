@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace evoPhone.biz {
     class Program {
-        static void Main(string[] args) {
+        static void Main(string[] args)
+        {
+            PhoneBuilder builder;
+            PhoneConstructor phoneConstructor = new PhoneConstructor();
+
+            builder = new SimCorpPhoneBuilder();
+            phoneConstructor.Construct(builder);
+            builder.Mobile.GetDescription();
+
+            Console.ReadKey();
         }
     }
 }
