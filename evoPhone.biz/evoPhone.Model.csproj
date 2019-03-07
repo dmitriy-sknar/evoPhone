@@ -43,35 +43,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BacklightKeyboard.cs" />
-    <Compile Include="BaseBattery.cs" />
-    <Compile Include="BaseCase.cs" />
-    <Compile Include="BaseTouch.cs" />
-    <Compile Include="Dynamic.cs" />
-    <Compile Include="BaseKeyboard.cs" />
-    <Compile Include="IBattery.cs" />
+    <Compile Include="Keyboard\BacklightKeyboard.cs" />
+    <Compile Include="Battery\BaseBattery.cs" />
+    <Compile Include="Case\BaseCase.cs" />
+    <Compile Include="Screen\BaseTouch.cs" />
+    <Compile Include="Sound\Dynamic.cs" />
+    <Compile Include="Keyboard\BaseKeyboard.cs" />
+    <Compile Include="Battery\IBattery.cs" />
     <Compile Include="IPhonePart.cs" />
-    <Compile Include="IPSScreen.cs" />
-    <Compile Include="IScreen.cs" />
-    <Compile Include="IScreenImage.cs" />
-    <Compile Include="ITouch.cs" />
-    <Compile Include="LiPoBattery.cs" />
-    <Compile Include="MaterialCase.cs" />
-    <Compile Include="Microphone.cs" />
+    <Compile Include="Screen\IPSScreen.cs" />
+    <Compile Include="Screen\IScreen.cs" />
+    <Compile Include="Screen\IScreenImage.cs" />
+    <Compile Include="Screen\ITouch.cs" />
+    <Compile Include="Battery\LiPoBattery.cs" />
+    <Compile Include="Case\MaterialCase.cs" />
+    <Compile Include="Sound\Microphone.cs" />
     <Compile Include="Mobile.cs" />
-    <Compile Include="MultiTouch.cs" />
-    <Compile Include="NiMhBattery.cs" />
+    <Compile Include="Screen\MultiTouch.cs" />
+    <Compile Include="Battery\NiMhBattery.cs" />
     <Compile Include="PhoneBuilder.cs" />
     <Compile Include="PhoneConstructor.cs" />
-    <Compile Include="PowerBattery.cs" />
+    <Compile Include="Battery\PowerBattery.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BaseScreen.cs" />
-    <Compile Include="Screen.cs" />
-    <Compile Include="Simcard.cs" />
+    <Compile Include="Screen\BaseScreen.cs" />
+    <Compile Include="Screen\Screen.cs" />
+    <Compile Include="Connectivity\Simcard.cs" />
     <Compile Include="SimCorpPhoneBuilder.cs" />
-    <Compile Include="SingleTouch.cs" />
-    <Compile Include="TouchScreen.cs" />
+    <Compile Include="Screen\SingleTouch.cs" />
+    <Compile Include="Screen\TouchScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
