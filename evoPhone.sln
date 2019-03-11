@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "evoPhone.Model", "evoPhone.biz\evoPhone.Model.csproj", "{B8AD6827-698B-44C7-8A7B-BCB2EBC48C52}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvoPhone.Model", "evoPhone.biz\EvoPhone.Model.csproj", "{B8AD6827-698B-44C7-8A7B-BCB2EBC48C52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "evoPhone.GUI", "evoPhone.GUI\evoPhone.GUI.csproj", "{5C0C04A3-7F80-4085-AE05-FD808A246367}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvoPhone.GUI", "evoPhone.GUI\EvoPhone.GUI.csproj", "{5C0C04A3-7F80-4085-AE05-FD808A246367}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvoPhone.Common", "EvoPhone.Common\EvoPhone.Common.csproj", "{9F073E59-C5B9-4D30-9D04-0DAE465B2E33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5C0C04A3-7F80-4085-AE05-FD808A246367}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C0C04A3-7F80-4085-AE05-FD808A246367}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C0C04A3-7F80-4085-AE05-FD808A246367}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F073E59-C5B9-4D30-9D04-0DAE465B2E33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F073E59-C5B9-4D30-9D04-0DAE465B2E33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F073E59-C5B9-4D30-9D04-0DAE465B2E33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F073E59-C5B9-4D30-9D04-0DAE465B2E33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

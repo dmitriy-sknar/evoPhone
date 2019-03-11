@@ -43,38 +43,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Keyboard\BacklightKeyboard.cs" />
-    <Compile Include="Battery\BaseBattery.cs" />
-    <Compile Include="Case\BaseCase.cs" />
-    <Compile Include="Screen\BaseTouch.cs" />
-    <Compile Include="Sound\Dynamic.cs" />
-    <Compile Include="Keyboard\BaseKeyboard.cs" />
-    <Compile Include="Battery\IBattery.cs" />
-    <Compile Include="IPhonePart.cs" />
-    <Compile Include="Screen\IPSScreen.cs" />
-    <Compile Include="Screen\IScreen.cs" />
-    <Compile Include="Screen\IScreenImage.cs" />
-    <Compile Include="Screen\ITouch.cs" />
-    <Compile Include="Battery\LiPoBattery.cs" />
-    <Compile Include="Case\MaterialCase.cs" />
-    <Compile Include="Sound\Microphone.cs" />
-    <Compile Include="Mobile.cs" />
-    <Compile Include="Screen\MultiTouch.cs" />
-    <Compile Include="Battery\NiMhBattery.cs" />
-    <Compile Include="PhoneBuilder.cs" />
-    <Compile Include="PhoneConstructor.cs" />
-    <Compile Include="Battery\PowerBattery.cs" />
+    <Compile Include="Builder\BlueBayPhoneBuilder.cs" />
+    <Compile Include="PhoneParts\Keyboard\BacklightKeyboard.cs" />
+    <Compile Include="PhoneParts\Battery\BaseBattery.cs" />
+    <Compile Include="PhoneParts\Case\BaseCase.cs" />
+    <Compile Include="PhoneParts\PartStatus.cs" />
+    <Compile Include="PhoneParts\Screen\BaseTouch.cs" />
+    <Compile Include="PhoneParts\Sound\Speaker.cs" />
+    <Compile Include="PhoneParts\Keyboard\BaseKeyboard.cs" />
+    <Compile Include="PhoneParts\Battery\Battery.cs" />
+    <Compile Include="PhoneParts\IPhonePart.cs" />
+    <Compile Include="PhoneParts\Screen\IPSScreen.cs" />
+    <Compile Include="PhoneParts\Screen\IScreen.cs" />
+    <Compile Include="PhoneParts\Screen\IScreenImage.cs" />
+    <Compile Include="PhoneParts\Screen\ITouch.cs" />
+    <Compile Include="PhoneParts\Case\MaterialCase.cs" />
+    <Compile Include="PhoneParts\Sound\Microphone.cs" />
+    <Compile Include="Builder\Mobile.cs" />
+    <Compile Include="PhoneParts\Screen\MultiTouch.cs" />
+    <Compile Include="Builder\PhoneBuilder.cs" />
+    <Compile Include="Builder\PhoneConstructor.cs" />
+    <Compile Include="PhoneParts\Battery\PowerBattery.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Screen\BaseScreen.cs" />
-    <Compile Include="Screen\Screen.cs" />
-    <Compile Include="Connectivity\Simcard.cs" />
-    <Compile Include="SimCorpPhoneBuilder.cs" />
-    <Compile Include="Screen\SingleTouch.cs" />
-    <Compile Include="Screen\TouchScreen.cs" />
+    <Compile Include="PhoneParts\Screen\BaseScreen.cs" />
+    <Compile Include="PhoneParts\Screen\Screen.cs" />
+    <Compile Include="PhoneParts\Connectivity\Simcard.cs" />
+    <Compile Include="Builder\SimCorpPhoneBuilder.cs" />
+    <Compile Include="PhoneParts\Screen\SingleTouch.cs" />
+    <Compile Include="PhoneParts\Screen\TouchScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EvoPhone.Common\EvoPhone.Common.csproj">
+      <Project>{9f073e59-c5b9-4d30-9d04-0dae465b2e33}</Project>
+      <Name>EvoPhone.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
