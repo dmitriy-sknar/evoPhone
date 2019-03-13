@@ -79,6 +79,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\evoPhone.biz\EvoPhone.Model.csproj">
+      <Project>{B8AD6827-698B-44C7-8A7B-BCB2EBC48C52}</Project>
+      <Name>EvoPhone.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EvoPhone.Common\EvoPhone.Common.csproj">
+      <Project>{9F073E59-C5B9-4D30-9D04-0DAE465B2E33}</Project>
+      <Name>EvoPhone.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

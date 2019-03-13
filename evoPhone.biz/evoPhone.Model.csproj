@@ -44,11 +44,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Builder\BlueBayPhoneBuilder.cs" />
+    <Compile Include="PhoneParts\Battery\Charger\ICharger.cs" />
+    <Compile Include="PhoneParts\Battery\Charger\StandardCharger.cs" />
+    <Compile Include="PhoneParts\Battery\Charger\WirelessCharger.cs" />
+    <Compile Include="PhoneParts\Connectivity\IBlueTooth.cs" />
     <Compile Include="PhoneParts\Keyboard\BacklightKeyboard.cs" />
     <Compile Include="PhoneParts\Battery\BaseBattery.cs" />
     <Compile Include="PhoneParts\Case\BaseCase.cs" />
     <Compile Include="PhoneParts\PartStatus.cs" />
     <Compile Include="PhoneParts\Screen\BaseTouch.cs" />
+    <Compile Include="PhoneParts\Sound\Headset\BluetoothHeadset.cs" />
+    <Compile Include="PhoneParts\Sound\Headset\MaxStereoHeadset.cs" />
+    <Compile Include="PhoneParts\Sound\Headset\StereoHeadset.cs" />
+    <Compile Include="PhoneParts\Sound\Headset\IMiniJack.cs" />
+    <Compile Include="PhoneParts\Sound\IPlayback.cs" />
     <Compile Include="PhoneParts\Sound\Speaker.cs" />
     <Compile Include="PhoneParts\Keyboard\BaseKeyboard.cs" />
     <Compile Include="PhoneParts\Battery\Battery.cs" />
@@ -82,6 +91,7 @@
       <Name>EvoPhone.Common</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

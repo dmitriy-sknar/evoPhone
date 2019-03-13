@@ -1,11 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Text;
+using evoPhone.biz.PhoneParts.Battery.Charger;
+using evoPhone.biz.PhoneParts.Sound;
 using EvoPhone.Common;
 
 namespace evoPhone.biz {
     public class Mobile {
         public string PhoneModel { get; }
         private readonly Dictionary<string, IPhonePart> vParts = new Dictionary<string, IPhonePart>();
+        public IPlayback PlaybackComponent { get; set; }
+        public ICharger ChargerComponent { get; set; }
 
         public Mobile(string phoneModel) {
             PhoneModel = phoneModel;
@@ -60,6 +64,14 @@ namespace evoPhone.biz {
                     keyValPair.Value.SetDeactivated();
                 }
             }
+        }
+
+        public void Play(object soundData) {
+            PlaybackComponent.Play(soundData);
+        }
+
+        public void Charge(object energy) {
+            ChargerComponent.Charge(energy);
         }
     }
 }

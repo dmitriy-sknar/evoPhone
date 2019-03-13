@@ -1,5 +1,5 @@
 ﻿namespace evoPhone.biz {
-    class SimCorpPhoneBuilder : PhoneBuilder {
+    public class SimCorpPhoneBuilder : PhoneBuilder {
         public SimCorpPhoneBuilder() {
             vMobile = new Mobile("SimCorp Mobile Phone");
         }

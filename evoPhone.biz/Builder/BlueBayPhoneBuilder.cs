@@ -1,5 +1,5 @@
 ﻿namespace evoPhone.biz.Builder {
-    class BlueBayPhoneBuilder : PhoneBuilder {
+    public class BlueBayPhoneBuilder : PhoneBuilder {
         public BlueBayPhoneBuilder() {
             vMobile = new Mobile("BlueBay Mobile Phone");
         }

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvoPhone.GUI", "evoPhone.GU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvoPhone.Common", "EvoPhone.Common\EvoPhone.Common.csproj", "{9F073E59-C5B9-4D30-9D04-0DAE465B2E33}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvoPhone.ModelTests", "EvoPhone.ModelTests\EvoPhone.ModelTests.csproj", "{F8968255-1BE6-4056-88ED-00A825E7BFB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{9F073E59-C5B9-4D30-9D04-0DAE465B2E33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F073E59-C5B9-4D30-9D04-0DAE465B2E33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F073E59-C5B9-4D30-9D04-0DAE465B2E33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8968255-1BE6-4056-88ED-00A825E7BFB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8968255-1BE6-4056-88ED-00A825E7BFB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8968255-1BE6-4056-88ED-00A825E7BFB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8968255-1BE6-4056-88ED-00A825E7BFB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
