@@ -10,7 +10,12 @@ namespace evoPhone.GUI {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var form = new PlaybackSelectOptForm();
+
+            //Lab2 form
+            //var form = new PlaybackSelectOptForm(); 
+            
+            //Lab3 form
+            var form = new MessageFormattingForm(); 
             Application.Run(form);
         }
     }

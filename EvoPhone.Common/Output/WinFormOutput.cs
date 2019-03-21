@@ -9,10 +9,12 @@ namespace Playback.Output {
         }
         public void Write(string text) {
             vTextBox.AppendText(text);
+            vTextBox.ScrollToCaret();
         }
 
         public void WriteLine(string text) {
             vTextBox.AppendText(text + '\n');
+            vTextBox.ScrollToCaret();
         }
     }
 }

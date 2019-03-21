@@ -41,11 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events\SMSEventArgs.cs" />
     <Compile Include="Output\ConsoleOutput.cs" />
     <Compile Include="Output\IOutput.cs" />
-    <Compile Include="Output\TestOutput.cs" />
-    <Compile Include="Output\TestOutputContainer.cs" />
     <Compile Include="Output\WinFormOutput.cs" />
+    <Compile Include="StringExtension\SMSMessageFormatter.cs" />
     <Compile Include="StringExtension\StringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

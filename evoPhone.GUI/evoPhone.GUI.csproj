@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MessageFormattingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageFormattingForm.Designer.cs">
+      <DependentUpon>MessageFormattingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PlaybackSelectOptForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MessageFormattingForm.resx">
+      <DependentUpon>MessageFormattingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PlaybackSelectOptForm.resx">
       <DependentUpon>PlaybackSelectOptForm.cs</DependentUpon>
     </EmbeddedResource>

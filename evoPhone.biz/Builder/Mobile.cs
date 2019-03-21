@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 using evoPhone.biz.PhoneParts.Battery.Charger;
+using evoPhone.biz.PhoneParts.SMS;
 using evoPhone.biz.PhoneParts.Sound;
 using EvoPhone.Common;
 
@@ -10,9 +11,16 @@ namespace evoPhone.biz {
         private readonly Dictionary<string, IPhonePart> vParts = new Dictionary<string, IPhonePart>();
         public IPlayback PlaybackComponent { get; set; }
         public ICharger ChargerComponent { get; set; }
+        public SMSProvider SmsProvider { get; set; }
 
         public Mobile(string phoneModel) {
             PhoneModel = phoneModel;
+            // init always present components
+            InitBasicComponents();
+        }
+
+        private void InitBasicComponents() {
+            SmsProvider = new SMSProvider();
         }
 
         public IPhonePart this[string key] {

@@ -53,6 +53,7 @@
     <Compile Include="PhoneParts\Case\BaseCase.cs" />
     <Compile Include="PhoneParts\PartStatus.cs" />
     <Compile Include="PhoneParts\Screen\BaseTouch.cs" />
+    <Compile Include="PhoneParts\SMS\SMSProvider.cs" />
     <Compile Include="PhoneParts\Sound\Headset\BluetoothHeadset.cs" />
     <Compile Include="PhoneParts\Sound\Headset\MaxStereoHeadset.cs" />
     <Compile Include="PhoneParts\Sound\Headset\StereoHeadset.cs" />
