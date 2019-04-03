@@ -11,7 +11,7 @@ namespace evoPhone.biz {
         private readonly Dictionary<string, IPhonePart> vParts = new Dictionary<string, IPhonePart>();
         public IPlayback PlaybackComponent { get; set; }
         public ICharger ChargerComponent { get; set; }
-        public SMSProvider SmsProvider { get; set; }
+        public SMSStorage SmsStorage { get; set; }
 
         public Mobile(string phoneModel) {
             PhoneModel = phoneModel;
@@ -20,7 +20,7 @@ namespace evoPhone.biz {
         }
 
         private void InitBasicComponents() {
-            SmsProvider = new SMSProvider();
+            SmsStorage = new SMSStorage();
         }
 
         public IPhonePart this[string key] {

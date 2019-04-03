@@ -57,7 +57,10 @@
     <Compile Include="Output\TestOutputContainer.cs" />
     <Compile Include="PhoneParts\Battery\Charger\StandardChargerTests.cs" />
     <Compile Include="PhoneParts\Battery\Charger\WirelessChargerTests.cs" />
+    <Compile Include="PhoneParts\SMS\SMSMessageFilterTests.cs" />
+    <Compile Include="PhoneParts\SMS\SMSMessageFormatterTest.cs" />
     <Compile Include="PhoneParts\SMS\SMSReceivedEventTest.cs" />
+    <Compile Include="PhoneParts\SMS\SMSStorageTests.cs" />
     <Compile Include="PhoneParts\Sound\Headset\BluetoothHeadsetTests.cs" />
     <Compile Include="PhoneParts\Sound\Headset\MaxStereoHeadsetTests.cs" />
     <Compile Include="PhoneParts\Sound\Headset\StereoHeadsetTests.cs" />

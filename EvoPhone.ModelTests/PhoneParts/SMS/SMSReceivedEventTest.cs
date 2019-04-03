@@ -1,4 +1,5 @@
-﻿using evoPhone.biz;
+﻿using System;
+using evoPhone.biz;
 using EvoPhone.Common;
 using EvoPhone.Common.Events;
 using EvoPhone.Common.Output;
@@ -22,20 +23,21 @@ namespace EvoPhone.ModelTests.PhoneParts.SMS {
 
         [TestMethod]
         public void TestMethod1() {
-            //GIVEN Mobile phone with SMS Provider that can handle OnSMSReceived event
-            //AND on this event vTestOutputContainer.Output property is populated with SMS message
+            //GIVEN Mobile phone with Message Storage that incapsulates Message Provider that in its turn can handle ReceiveSms event
+            //AND on this event vTestOutputContainer.Output property is populated with test message
             vTestOutputContainer = new TestOutputContainer();
             vOutputComponent = new TestOutput(vTestOutputContainer);
-            vMobile.SmsProvider.SMSReceivedHandler += OnSMSReceived;
-            string expmsg = "Message number 1\n";
-            //WHEN OnSMSReceived event is raised
-            vMobile.SmsProvider.RaiseSMSReceivedEvent();
-            //THEN vTestOutputContainer.Output property is populated with correct SMS message
-            Assert.AreEqual(expmsg, vTestOutputContainer.Output);
+            vMobile.SmsStorage.SMSStorageChangeHandler += OnSMSStorageChanged;
+            string expmsg = "Message number #1 received!";
+            //WHEN ReceiveSms event is raised
+            vMobile.SmsStorage.RaiseSMSReceivedEvent();
+            //THEN vTestOutputContainer.Output property is populated with correct Message message
+            bool contains = vTestOutputContainer.Output.Contains("Message number #1 received!");
+            Assert.IsTrue(contains);
         }
 
-        private void OnSMSReceived(object sender, SMSEventArgs eventArgs) {
-            string message = eventArgs.SMS;
+        private void OnSMSStorageChanged(object sender, SMSEventArgs eventArgs) {
+            string message = eventArgs.Message.ToString();
             vOutputComponent.WriteLine(message);
         }
     }
