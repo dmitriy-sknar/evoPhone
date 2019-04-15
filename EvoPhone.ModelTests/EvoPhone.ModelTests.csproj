@@ -56,7 +56,10 @@
     <Compile Include="Output\TestOutput.cs" />
     <Compile Include="Output\TestOutputContainer.cs" />
     <Compile Include="PhoneParts\Battery\Charger\StandardChargerTests.cs" />
+    <Compile Include="PhoneParts\Battery\Charger\TaskChargerTests.cs" />
+    <Compile Include="PhoneParts\Battery\Charger\ThreadedChargerTests.cs" />
     <Compile Include="PhoneParts\Battery\Charger\WirelessChargerTests.cs" />
+    <Compile Include="PhoneParts\Battery\PowerBatteryTests.cs" />
     <Compile Include="PhoneParts\SMS\SMSMessageFilterTests.cs" />
     <Compile Include="PhoneParts\SMS\SMSMessageFormatterTest.cs" />
     <Compile Include="PhoneParts\SMS\SMSReceivedEventTest.cs" />

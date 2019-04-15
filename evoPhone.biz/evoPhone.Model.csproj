@@ -44,8 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Builder\BlueBayPhoneBuilder.cs" />
+    <Compile Include="PhoneParts\Battery\Charger\Factory\ThreadChargerCreator.cs" />
+    <Compile Include="PhoneParts\Battery\Charger\Factory\TaskChargerCreator.cs" />
+    <Compile Include="PhoneParts\Battery\Charger\Factory\ChargerCreator.cs" />
+    <Compile Include="PhoneParts\Battery\Charger\IInteractiveCharger.cs" />
     <Compile Include="PhoneParts\Battery\Charger\ICharger.cs" />
     <Compile Include="PhoneParts\Battery\Charger\StandardCharger.cs" />
+    <Compile Include="PhoneParts\Battery\Charger\TaskCharger.cs" />
+    <Compile Include="PhoneParts\Battery\Charger\ThreadedCharger.cs" />
     <Compile Include="PhoneParts\Battery\Charger\WirelessCharger.cs" />
     <Compile Include="PhoneParts\Connectivity\IBlueTooth.cs" />
     <Compile Include="PhoneParts\Contacts\Contact.cs" />
@@ -60,6 +66,7 @@
     <Compile Include="PhoneParts\SMS\SMSMessageFormatter.cs" />
     <Compile Include="PhoneParts\SMS\SMSProvider.cs" />
     <Compile Include="PhoneParts\SMS\SMSStorage.cs" />
+    <Compile Include="PhoneParts\TasksAndThreads\SMSGenerationThread.cs" />
     <Compile Include="PhoneParts\Sound\Headset\BluetoothHeadset.cs" />
     <Compile Include="PhoneParts\Sound\Headset\MaxStereoHeadset.cs" />
     <Compile Include="PhoneParts\Sound\Headset\StereoHeadset.cs" />

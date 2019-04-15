@@ -35,6 +35,10 @@
             this.ContactNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ContactName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SMSMessage = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnEnableMessaging = new System.Windows.Forms.Button();
+            this.btnDisableMessaging = new System.Windows.Forms.Button();
+            this.btnCharge = new System.Windows.Forms.Button();
+            this.barChargeLevel = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // SMSOutputBox
@@ -48,23 +52,17 @@
             // FormatingOptComboBox
             // 
             this.FormatingOptComboBox.FormattingEnabled = true;
-            this.FormatingOptComboBox.Location = new System.Drawing.Point(12, 38);
+            this.FormatingOptComboBox.Location = new System.Drawing.Point(501, 12);
             this.FormatingOptComboBox.Name = "FormatingOptComboBox";
-            this.FormatingOptComboBox.Size = new System.Drawing.Size(167, 21);
+            this.FormatingOptComboBox.Size = new System.Drawing.Size(129, 21);
             this.FormatingOptComboBox.TabIndex = 1;
             this.FormatingOptComboBox.Text = "Select Formatting";
             this.FormatingOptComboBox.SelectedIndexChanged += new System.EventHandler(this.FormatingOptComboBox_SelectedIndexChanged);
             // 
-            // SMSTimer
-            // 
-            this.SMSTimer.Enabled = true;
-            this.SMSTimer.Interval = 5000;
-            this.SMSTimer.Tick += new System.EventHandler(this.SMSTimer_Tick);
-            // 
             // PhoneNumberOptComboBox
             // 
             this.PhoneNumberOptComboBox.FormattingEnabled = true;
-            this.PhoneNumberOptComboBox.Location = new System.Drawing.Point(365, 12);
+            this.PhoneNumberOptComboBox.Location = new System.Drawing.Point(363, 38);
             this.PhoneNumberOptComboBox.Name = "PhoneNumberOptComboBox";
             this.PhoneNumberOptComboBox.Size = new System.Drawing.Size(130, 21);
             this.PhoneNumberOptComboBox.TabIndex = 2;
@@ -75,7 +73,7 @@
             // DateFrom
             // 
             this.DateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DateFrom.Location = new System.Drawing.Point(365, 39);
+            this.DateFrom.Location = new System.Drawing.Point(363, 65);
             this.DateFrom.Name = "DateFrom";
             this.DateFrom.Size = new System.Drawing.Size(130, 20);
             this.DateFrom.TabIndex = 3;
@@ -84,7 +82,7 @@
             // DateTo
             // 
             this.DateTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DateTo.Location = new System.Drawing.Point(501, 39);
+            this.DateTo.Location = new System.Drawing.Point(499, 65);
             this.DateTo.Name = "DateTo";
             this.DateTo.Size = new System.Drawing.Size(130, 20);
             this.DateTo.TabIndex = 4;
@@ -92,7 +90,7 @@
             // 
             // SearchBox
             // 
-            this.SearchBox.Location = new System.Drawing.Point(501, 13);
+            this.SearchBox.Location = new System.Drawing.Point(499, 39);
             this.SearchBox.Name = "SearchBox";
             this.SearchBox.Size = new System.Drawing.Size(130, 20);
             this.SearchBox.TabIndex = 5;
@@ -108,9 +106,9 @@
             this.ContactName,
             this.SMSMessage});
             this.MessageListView.GridLines = true;
-            this.MessageListView.Location = new System.Drawing.Point(10, 65);
+            this.MessageListView.Location = new System.Drawing.Point(10, 94);
             this.MessageListView.Name = "MessageListView";
-            this.MessageListView.Size = new System.Drawing.Size(620, 480);
+            this.MessageListView.Size = new System.Drawing.Size(620, 509);
             this.MessageListView.TabIndex = 6;
             this.MessageListView.UseCompatibleStateImageBehavior = false;
             this.MessageListView.View = System.Windows.Forms.View.Details;
@@ -130,11 +128,57 @@
             this.SMSMessage.Text = "SMS Message";
             this.SMSMessage.Width = 360;
             // 
+            // btnEnableMessaging
+            // 
+            this.btnEnableMessaging.Location = new System.Drawing.Point(12, 38);
+            this.btnEnableMessaging.Name = "btnEnableMessaging";
+            this.btnEnableMessaging.Size = new System.Drawing.Size(130, 23);
+            this.btnEnableMessaging.TabIndex = 7;
+            this.btnEnableMessaging.Text = "Enable messaging";
+            this.btnEnableMessaging.UseVisualStyleBackColor = true;
+            this.btnEnableMessaging.Click += new System.EventHandler(this.btnEnableMessaging_Click);
+            // 
+            // btnDisableMessaging
+            // 
+            this.btnDisableMessaging.Enabled = false;
+            this.btnDisableMessaging.Location = new System.Drawing.Point(12, 62);
+            this.btnDisableMessaging.Name = "btnDisableMessaging";
+            this.btnDisableMessaging.Size = new System.Drawing.Size(130, 23);
+            this.btnDisableMessaging.TabIndex = 8;
+            this.btnDisableMessaging.Text = "Disable messaging";
+            this.btnDisableMessaging.UseVisualStyleBackColor = true;
+            this.btnDisableMessaging.Click += new System.EventHandler(this.btnDisableMessaging_Click);
+            // 
+            // btnCharge
+            // 
+            this.btnCharge.Location = new System.Drawing.Point(216, 12);
+            this.btnCharge.Name = "btnCharge";
+            this.btnCharge.Size = new System.Drawing.Size(127, 23);
+            this.btnCharge.TabIndex = 9;
+            this.btnCharge.Text = "Connect charger";
+            this.btnCharge.UseVisualStyleBackColor = true;
+            this.btnCharge.Click += new System.EventHandler(this.btnCharge_Click);
+            // 
+            // barChargeLevel
+            // 
+            this.barChargeLevel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.barChargeLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.barChargeLevel.Location = new System.Drawing.Point(10, 12);
+            this.barChargeLevel.Name = "barChargeLevel";
+            this.barChargeLevel.Size = new System.Drawing.Size(200, 23);
+            this.barChargeLevel.Step = 1;
+            this.barChargeLevel.TabIndex = 10;
+            this.barChargeLevel.Value = 100;
+            // 
             // MessageFormattingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 557);
+            this.ClientSize = new System.Drawing.Size(640, 615);
+            this.Controls.Add(this.barChargeLevel);
+            this.Controls.Add(this.btnCharge);
+            this.Controls.Add(this.btnDisableMessaging);
+            this.Controls.Add(this.btnEnableMessaging);
             this.Controls.Add(this.MessageListView);
             this.Controls.Add(this.SearchBox);
             this.Controls.Add(this.DateTo);
@@ -164,5 +208,9 @@
         private System.Windows.Forms.ColumnHeader ContactNumber;
         private System.Windows.Forms.ColumnHeader ContactName;
         private System.Windows.Forms.ColumnHeader SMSMessage;
+        private System.Windows.Forms.Button btnEnableMessaging;
+        private System.Windows.Forms.Button btnDisableMessaging;
+        private System.Windows.Forms.Button btnCharge;
+        private System.Windows.Forms.ProgressBar barChargeLevel;
     }
 }

@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using evoPhone.biz;
+using evoPhone.biz.PhoneParts.Battery.Charger;
+using evoPhone.biz.PhoneParts.Battery.Charger.Factory;
 using evoPhone.biz.PhoneParts.SMS;
+using evoPhone.biz.PhoneParts.TasksAndThreads;
 using EvoPhone.Common;
+using EvoPhone.Common.DateTime;
 using Playback.Output;
 using Message = evoPhone.biz.PhoneParts.SMS.Message;
 
@@ -14,8 +19,11 @@ namespace evoPhone.GUI {
         private SMSMessageFormatter vSmsMessageFormatter;
         private List<Message> vPreparedMessages;
         private List<ListViewItem> vListViewItems;
+        private SMSGenerationThread vSMSGenerationThread;
 
         public MessageFormattingForm() {
+            Application.EnableVisualStyles();
+
             //Form init stage
             InitializeComponent();
             InitializeListView();
@@ -31,10 +39,7 @@ namespace evoPhone.GUI {
             vMobile = builder.GetMobile;
             vMobile.SetAllActive();
 
-            //Output init 
-            //vOutputComponent = new WinFormOutput(SMSOutputBox); //Lab3 solution
-            vOutputComponent = new ListViewOutput(MessageListView); //Lab4 solution
-            vMobile.SmsStorage.SMSStorageChangeHandler += OnSMSStorageChanged;
+            //Initialization is continued in OnLoad
         }
 
         private void InitializeListView() {
@@ -48,7 +53,8 @@ namespace evoPhone.GUI {
             }
         }
 
-        private void UpdatePhoneNumberOptComboBox(List<Message> list) {
+        private void UpdatePhoneNumberOptComboBox() {
+            List<Message> list = vMobile.SmsStorage.List;
             foreach (var message in list) {
                 if (!PhoneNumberOptComboBox.Items.Contains(message.Contact.Number)) {
                     int index = PhoneNumberOptComboBox.Items.Count == 0 ? 0 : PhoneNumberOptComboBox.Items.Count;
@@ -58,11 +64,12 @@ namespace evoPhone.GUI {
         }
 
         private void OnSMSStorageChanged(object sender, EventArgs eventArgs) {
-            UpdatePhoneNumberOptComboBox(vMobile.SmsStorage.List);
-            UpdateOutput();
+            if (InvokeRequired) Invoke(new Action(UpdateOutput));
+            else UpdateOutput();
         }
 
         private void UpdateOutput() {
+            UpdatePhoneNumberOptComboBox();
             // prepare formatter
             int index = FormatingOptComboBox.SelectedIndex;
             var formatter = vSmsMessageFormatter.GetFormatter(index);
@@ -78,7 +85,8 @@ namespace evoPhone.GUI {
             DateTime endDateTime = DateTo.Value;
 
             //prepare message list
-            vPreparedMessages = SMSMessageFilter.AllFilters(vMobile.SmsStorage.List, numberFilter, messageFilter, startDateTime, endDateTime);
+            vPreparedMessages = SMSMessageFilter.AllFilters(vMobile.SmsStorage.List, numberFilter, messageFilter,
+                startDateTime, endDateTime);
 
             vListViewItems.Clear();
             foreach (var message in vPreparedMessages) {
@@ -90,11 +98,6 @@ namespace evoPhone.GUI {
             }
             MessageListView.Items.Clear();
             ((IListViewOutput) vOutputComponent).WriteLines(vListViewItems);
-        }
-
-        private void SMSTimer_Tick(object sender, EventArgs e) {
-            //call is made directly to SMSProvider so far there is no logic about Message Receiving etc. It could be modified later.
-            vMobile.SmsStorage.RaiseSMSReceivedEvent();
         }
 
         private void SearchBox_Click(object sender, EventArgs e) {
@@ -136,6 +139,80 @@ namespace evoPhone.GUI {
         private void DateTo_ValueChanged(object sender, EventArgs e) {
             if (vPreparedMessages != null)
                 UpdateOutput();
+        }
+
+        private void btnCharge_Click(object sender, EventArgs e) {
+            if (vMobile.ChargerComponent.IsReachableConnected) {
+                vMobile.ChargerComponent.IsReachableConnected = false;
+                btnCharge.Text = "Connect charger";
+            }
+            else {
+                vMobile.ChargerComponent.IsReachableConnected = true;
+                btnCharge.Text = "Disconnect charger";
+            }
+        }
+
+        private void btnEnableMessaging_Click(object sender, EventArgs e) {
+            vSMSGenerationThread.Start();
+            btnEnableMessaging.Enabled = false;
+            btnDisableMessaging.Enabled = true;
+        }
+
+        private void btnDisableMessaging_Click(object sender, EventArgs e) {
+            vSMSGenerationThread.Stop();
+            btnEnableMessaging.Enabled = true;
+            btnDisableMessaging.Enabled = false;
+        }
+
+        private void OnBatteryChargeLevelChanged(object sender, EventArgs eventArgs) {
+            if (InvokeRequired)
+                Invoke(new Action(UpdateChargeLevelBar));
+            else
+                UpdateChargeLevelBar();
+        }
+
+        private void UpdateChargeLevelBar() {
+            if (vMobile.ChargerComponent.IsReachableConnected) barChargeLevel.SetState(1);
+            else barChargeLevel.SetState(2);
+
+            barChargeLevel.Value = vMobile.Battery.ChargeLevel;
+        }
+
+
+        protected override void OnLoad(EventArgs e) {
+            base.OnLoad(e);
+
+            //Output init 
+            //Lab3 solution
+            //vOutputComponent = new WinFormOutput(SMSOutputBox);
+
+            //Lab4 solution
+            vOutputComponent = new ListViewOutput(MessageListView);
+            vMobile.SmsStorage.SMSStorageChangeHandler += OnSMSStorageChanged;
+            vSMSGenerationThread = new SMSGenerationThread(vMobile);
+
+            barChargeLevel.SetState(1);
+
+            // Initialization of Charger and it's threads/tasks
+
+            //Thread-based charger
+            //ChargerCreator chargerCreator = new ThreadChargerCreator();
+
+            //Task-based charger
+            ChargerCreator chargerCreator = new TaskChargerCreator();
+            IInteractiveCharger charger = chargerCreator.CreateCharger(vMobile.Battery, TimeUnits.Second(), TimeUnits.TwoSeconds());
+            charger.ChargeLevelChangedHandler += OnBatteryChargeLevelChanged;
+            vMobile.ChargerComponent = charger;
+        }
+    }
+
+    public static class ModifyProgressBarColor {
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
+        static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr w, IntPtr l);
+
+        public static void SetState(this ProgressBar pBar, int state) {
+            if (!pBar.IsDisposed)
+                SendMessage(pBar.Handle, 1040, (IntPtr) state, IntPtr.Zero);
         }
     }
 }

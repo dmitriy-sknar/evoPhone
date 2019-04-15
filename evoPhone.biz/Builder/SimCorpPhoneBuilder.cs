@@ -21,7 +21,9 @@
         }
 
         public override void BuildBattery() {
-            vMobile["battery"] = new PowerBattery(BatteryType.PowerLiPo, 3000, 60, 40, 4);
+            IPhonePart battery = new PowerBattery(BatteryType.PowerLiPo, 3000, 60, 40, 4);
+            vMobile["battery"] = battery;
+            vMobile.Battery = (Battery) battery;
         }
 
         public override void BuildMicrophone() {

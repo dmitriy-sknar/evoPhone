@@ -12,6 +12,7 @@ namespace evoPhone.biz {
         public IPlayback PlaybackComponent { get; set; }
         public ICharger ChargerComponent { get; set; }
         public SMSStorage SmsStorage { get; set; }
+        public Battery Battery { get; set; }
 
         public Mobile(string phoneModel) {
             PhoneModel = phoneModel;
