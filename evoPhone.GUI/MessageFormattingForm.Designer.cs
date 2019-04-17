@@ -115,7 +115,7 @@
             // 
             // ContactNumber
             // 
-            this.ContactNumber.Text = "Contact Number";
+            this.ContactNumber.Text = "Contact MainNumber";
             this.ContactNumber.Width = 110;
             // 
             // ContactName

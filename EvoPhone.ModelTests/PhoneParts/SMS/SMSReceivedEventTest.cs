@@ -1,5 +1,4 @@
-﻿using System;
-using evoPhone.biz;
+﻿using evoPhone.biz;
 using EvoPhone.Common;
 using EvoPhone.Common.Events;
 using EvoPhone.Common.Output;
@@ -22,7 +21,7 @@ namespace EvoPhone.ModelTests.PhoneParts.SMS {
         }
 
         [TestMethod]
-        public void TestMethod1() {
+        public void SmsReceivedEventTest() {
             //GIVEN Mobile phone with Message Storage that incapsulates Message Provider that in its turn can handle ReceiveSms event
             //AND on this event vTestOutputContainer.Output property is populated with test message
             vTestOutputContainer = new TestOutputContainer();

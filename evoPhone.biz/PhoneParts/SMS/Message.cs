@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using evoPhone.biz.PhoneParts.Contacts;
+using evoPhone.biz.Contacts;
 
 namespace evoPhone.biz.PhoneParts.SMS {
     public class Message {
@@ -27,7 +27,7 @@ namespace evoPhone.biz.PhoneParts.SMS {
         }
 
         public override string ToString() {
-            return $">>>>>>>>> Received on: {ReceivingTime}\nContact number:{Contact.Number};\n{Contact.Name}: {Text}\n";
+            return $">>>>>>>>> Received on: {ReceivingTime}\nContact number:{Contact.MainNumber};\n{Contact.Name}: {Text}\n";
         }
     }
 }

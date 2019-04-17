@@ -56,9 +56,9 @@ namespace evoPhone.GUI {
         private void UpdatePhoneNumberOptComboBox() {
             List<Message> list = vMobile.SmsStorage.List;
             foreach (var message in list) {
-                if (!PhoneNumberOptComboBox.Items.Contains(message.Contact.Number)) {
+                if (!PhoneNumberOptComboBox.Items.Contains(message.Contact.MainNumber)) {
                     int index = PhoneNumberOptComboBox.Items.Count == 0 ? 0 : PhoneNumberOptComboBox.Items.Count;
-                    PhoneNumberOptComboBox.Items.Insert(index, message.Contact.Number);
+                    PhoneNumberOptComboBox.Items.Insert(index, message.Contact.MainNumber);
                 }
             }
         }
@@ -91,7 +91,7 @@ namespace evoPhone.GUI {
             vListViewItems.Clear();
             foreach (var message in vPreparedMessages) {
                 string[] arr = new string[3];
-                arr[0] = message.Contact.Number.ToString();
+                arr[0] = message.Contact.MainNumber.ToString();
                 arr[1] = message.Contact.Name;
                 arr[2] = formatter(message);
                 vListViewItems.Add(new ListViewItem(arr));

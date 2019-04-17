@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CallHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CallHistoryForm.Designer.cs">
+      <DependentUpon>CallHistoryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MessageFormattingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CallHistoryForm.resx">
+      <DependentUpon>CallHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MessageFormattingForm.resx">
       <DependentUpon>MessageFormattingForm.cs</DependentUpon>
     </EmbeddedResource>

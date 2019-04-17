@@ -17,7 +17,7 @@ namespace evoPhone.biz.PhoneParts.SMS {
         public static List<Message> NumberFilter(List<Message> vMessageList, long numberFilter) {
             List<Message> preparedMessages = new List<Message>(vMessageList);
             if (numberFilter != -1 && numberFilter != 0) {
-                preparedMessages = preparedMessages.Where(message => message.Contact.Number == numberFilter).ToList();
+                preparedMessages = preparedMessages.Where(message => message.Contact.MainNumber == numberFilter).ToList();
             }
             return preparedMessages;
         }

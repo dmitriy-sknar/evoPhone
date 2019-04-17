@@ -34,7 +34,8 @@ namespace evoPhone.biz.PhoneParts.Battery.Charger {
         }
 
         public void OnBatteryChargeLevelChanged() {
-            ChargeLevelChangedHandler?.Invoke(this, EventArgs.Empty);
+            //ChargeLevelChangedHandler?.Invoke(this, EventArgs.Empty);
+            ChargeLevelChangedHandler?.BeginInvoke(this, EventArgs.Empty, null, null);
         }
 
         public event EventHandler ChargeLevelChangedHandler;

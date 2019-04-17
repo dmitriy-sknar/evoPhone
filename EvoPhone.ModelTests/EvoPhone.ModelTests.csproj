@@ -53,6 +53,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Calls\CallListTests.cs" />
     <Compile Include="Output\TestOutput.cs" />
     <Compile Include="Output\TestOutputContainer.cs" />
     <Compile Include="PhoneParts\Battery\Charger\StandardChargerTests.cs" />
