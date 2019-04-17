@@ -44,6 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Builder\BlueBayPhoneBuilder.cs" />
+    <Compile Include="Calls\Call.cs" />
+    <Compile Include="Calls\CallCompararerByDateTime.cs" />
+    <Compile Include="Calls\CallList.cs" />
+    <Compile Include="Contacts\ContactsListProvider.cs" />
     <Compile Include="PhoneParts\Battery\Charger\Factory\ThreadChargerCreator.cs" />
     <Compile Include="PhoneParts\Battery\Charger\Factory\TaskChargerCreator.cs" />
     <Compile Include="PhoneParts\Battery\Charger\Factory\ChargerCreator.cs" />
@@ -54,18 +58,21 @@
     <Compile Include="PhoneParts\Battery\Charger\ThreadedCharger.cs" />
     <Compile Include="PhoneParts\Battery\Charger\WirelessCharger.cs" />
     <Compile Include="PhoneParts\Connectivity\IBlueTooth.cs" />
-    <Compile Include="PhoneParts\Contacts\Contact.cs" />
+    <Compile Include="Contacts\Contact.cs" />
     <Compile Include="PhoneParts\Keyboard\BacklightKeyboard.cs" />
     <Compile Include="PhoneParts\Battery\BaseBattery.cs" />
     <Compile Include="PhoneParts\Case\BaseCase.cs" />
     <Compile Include="PhoneParts\PartStatus.cs" />
     <Compile Include="PhoneParts\Screen\BaseTouch.cs" />
+    <Compile Include="Calls\Events\CallEventArgs.cs" />
     <Compile Include="PhoneParts\SMS\Events\SMSEventArgs.cs" />
     <Compile Include="PhoneParts\SMS\Message.cs" />
     <Compile Include="PhoneParts\SMS\SMSMessageFilter.cs" />
     <Compile Include="PhoneParts\SMS\SMSMessageFormatter.cs" />
+    <Compile Include="Calls\CallStorage.cs" />
     <Compile Include="PhoneParts\SMS\SMSProvider.cs" />
     <Compile Include="PhoneParts\SMS\SMSStorage.cs" />
+    <Compile Include="PhoneParts\TasksAndThreads\CallGenerationThread.cs" />
     <Compile Include="PhoneParts\TasksAndThreads\SMSGenerationThread.cs" />
     <Compile Include="PhoneParts\Sound\Headset\BluetoothHeadset.cs" />
     <Compile Include="PhoneParts\Sound\Headset\MaxStereoHeadset.cs" />

@@ -12,6 +12,7 @@ namespace evoPhone.biz {
         public IPlayback PlaybackComponent { get; set; }
         public ICharger ChargerComponent { get; set; }
         public SMSStorage SmsStorage { get; set; }
+        public CallStorage CallStorage { get; set; }
         public Battery Battery { get; set; }
 
         public Mobile(string phoneModel) {
@@ -22,6 +23,7 @@ namespace evoPhone.biz {
 
         private void InitBasicComponents() {
             SmsStorage = new SMSStorage();
+            CallStorage = new CallStorage();
         }
 
         public IPhonePart this[string key] {
