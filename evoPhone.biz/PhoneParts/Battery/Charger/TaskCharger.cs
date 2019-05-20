@@ -22,28 +22,25 @@ namespace evoPhone.biz.PhoneParts.Battery.Charger {
 
         private void CreateTasks() {
             vBatteryChargingTask = Task.Factory.StartNew(() => {
-                while (true) {
+                while (true)
                     if (IsReachableConnected) {
                         Task.Delay(ChargeDelay).Wait();
                         Battery.Charge();
                         OnBatteryChargeLevelChanged();
-                        
-                        }
-                }
+                    }
             });
 
             vBatteryDishargingTask = Task.Factory.StartNew(() => {
-                while (true) {
+                while (true)
                     if (!IsReachableConnected) {
-                        Task.Delay(DischargeDelay).Wait(); 
+                        Task.Delay(DischargeDelay).Wait();
                         Battery.Discharge();
                         OnBatteryChargeLevelChanged();
                     }
-                }
             });
         }
 
-        public void Charge(object energy) {}
+        public void Charge(object energy) { }
 
         public void OnBatteryChargeLevelChanged() {
             //ChargeLevelChangedHandler?.Invoke(this, EventArgs.Empty);

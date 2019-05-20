@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using evoPhone.biz.Calls;
+using evoPhone.biz.Calls.Comparators;
 using evoPhone.biz.Calls.Events;
 using evoPhone.biz.Contacts;
 
@@ -15,13 +16,13 @@ namespace evoPhone.biz.PhoneParts.SMS {
         public CallStorage() {
             vContactListProvider = new ContactsListProvider();
             vContactList = vContactListProvider.GetList();
-            vCallList = new CallList(new CallCompararerByDateTime());
+            vCallList = new CallList(new CompararerByDateTime());
             CallReceivedHandler += OnCallReceived;
         }
 
         public void RaiseSMSReceivedEvent() {
             int callerIndex = vRandom.Next(0, vContactList.Count);
-            int callDirection = vRandom.Next(0, 1);
+            int callDirection = vRandom.Next(0, 2);
             CallDirection callDirectionValue;
             switch (callDirection) {
                 case 0:
@@ -47,6 +48,10 @@ namespace evoPhone.biz.PhoneParts.SMS {
 
         private void OnCallReceived(object sender, CallEventArgs e) {
             vCallList.Add(e.Call);
+        }
+
+        public CallList GetCallList() {
+            return vCallList;
         }
     }
 }

@@ -80,6 +80,7 @@ namespace evoPhone.GUI {
                 string selectedNumber = PhoneNumberOptComboBox.Items[PhoneNumberOptComboBox.SelectedIndex].ToString();
                 numberFilter = long.Parse(selectedNumber, System.Globalization.NumberStyles.Number);
             }
+
             string messageFilter = SearchBox.Text;
             DateTime startDateTime = DateFrom.Value;
             DateTime endDateTime = DateTo.Value;
@@ -96,8 +97,9 @@ namespace evoPhone.GUI {
                 arr[2] = formatter(message);
                 vListViewItems.Add(new ListViewItem(arr));
             }
+
             MessageListView.Items.Clear();
-            ((IListViewOutput) vOutputComponent).WriteLines(vListViewItems);
+            ((IListViewOutput)vOutputComponent).WriteLines(vListViewItems);
         }
 
         private void SearchBox_Click(object sender, EventArgs e) {
@@ -145,8 +147,7 @@ namespace evoPhone.GUI {
             if (vMobile.ChargerComponent.IsReachableConnected) {
                 vMobile.ChargerComponent.IsReachableConnected = false;
                 btnCharge.Text = "Connect charger";
-            }
-            else {
+            } else {
                 vMobile.ChargerComponent.IsReachableConnected = true;
                 btnCharge.Text = "Disconnect charger";
             }
@@ -165,10 +166,11 @@ namespace evoPhone.GUI {
         }
 
         private void OnBatteryChargeLevelChanged(object sender, EventArgs eventArgs) {
-            if (InvokeRequired)
-                Invoke(new Action(UpdateChargeLevelBar));
-            else
-                UpdateChargeLevelBar();
+            if (!barChargeLevel.IsDisposed)
+                if (InvokeRequired)
+                    Invoke(new Action(UpdateChargeLevelBar));
+                else
+                    UpdateChargeLevelBar();
         }
 
         private void UpdateChargeLevelBar() {
@@ -177,7 +179,6 @@ namespace evoPhone.GUI {
 
             barChargeLevel.Value = vMobile.Battery.ChargeLevel;
         }
-
 
         protected override void OnLoad(EventArgs e) {
             base.OnLoad(e);
@@ -212,7 +213,7 @@ namespace evoPhone.GUI {
 
         public static void SetState(this ProgressBar pBar, int state) {
             if (!pBar.IsDisposed)
-                SendMessage(pBar.Handle, 1040, (IntPtr) state, IntPtr.Zero);
+                SendMessage(pBar.Handle, 1040, (IntPtr)state, IntPtr.Zero);
         }
     }
 }

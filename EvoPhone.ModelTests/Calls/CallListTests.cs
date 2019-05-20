@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using evoPhone.biz.Calls.Comparators;
 using evoPhone.biz.Contacts;
 
 namespace evoPhone.biz.Calls.Tests {
@@ -11,7 +12,7 @@ namespace evoPhone.biz.Calls.Tests {
 
         [TestInitialize]
         public void TestInitialize() {
-            vCallList = new CallList(new CallCompararerByDateTime());
+            vCallList = new CallList(new CompararerByDateTime());
             call1 = new Call(new Contact("John Travolta", 380671234567), new DateTime(2019, 01, 01, 01, 01, 10),
                 CallDirection.Incoming);
             call2 = new Call(new Contact("Erik Johanson", 380671234568), new DateTime(2019, 01, 01, 01, 01, 15),

@@ -53,6 +53,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Calls\CompararerByDateTimeTests.cs" />
+    <Compile Include="Calls\CallComparByContactAndDirectTests.cs" />
     <Compile Include="Calls\CallListTests.cs" />
     <Compile Include="Output\TestOutput.cs" />
     <Compile Include="Output\TestOutputContainer.cs" />

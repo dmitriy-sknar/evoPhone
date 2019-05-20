@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace evoPhone.biz.Calls {
-    public class CallList {
+    public class CallList : IEnumerable {
 
         private SortedList<DateTime, Call> List;
 
@@ -38,6 +39,11 @@ namespace evoPhone.biz.Calls {
                 return List.Values[callIndex];
             }
             return null;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return List.GetEnumerator();
         }
     }
 }

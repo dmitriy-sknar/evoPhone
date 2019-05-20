@@ -31,7 +31,7 @@ namespace EvoPhone.ModelTests.PhoneParts.SMS {
             //WHEN ReceiveSms event is raised
             vMobile.SmsStorage.RaiseSMSReceivedEvent();
             //THEN vTestOutputContainer.Output property is populated with correct Message message
-            bool contains = vTestOutputContainer.Output.Contains("Message number #1 received!");
+            bool contains = vTestOutputContainer.Output.Contains(expmsg);
             Assert.IsTrue(contains);
         }
 

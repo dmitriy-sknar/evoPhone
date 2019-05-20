@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using evoPhone.biz;
+using evoPhone.biz.Calls.Events;
 using evoPhone.biz.PhoneParts.TasksAndThreads;
 using EvoPhone.Common;
 using Playback.Output;
+using evoPhone.biz.Calls.ViewModel;
 
 namespace evoPhone.GUI {
     public partial class CallHistoryForm : Form {
-
         private IOutput vOutputComponent;
         private Mobile vMobile;
         private List<ListViewItem> vListViewItems;
@@ -29,25 +30,21 @@ namespace evoPhone.GUI {
             //Initialization is continued in OnLoad
         }
 
-        private void OnCallListChanged(object sender, EventArgs eventArgs) {
-            if (InvokeRequired)
-                Invoke(new Action(UpdateOutput));
-            else
-                UpdateOutput();
+        private void OnCallListChanged(object sender, CallEventArgs eventArgs) {
+            if (!this.IsDisposed)
+                if (InvokeRequired)
+                    Invoke(new Action(UpdateOutput));
+                 else
+                    UpdateOutput();
         }
 
         private void UpdateOutput() {
+            vListViewItems.Clear();
+            CallsPresenter callsPresenter = new CallsPresenter(vMobile.CallStorage.GetCallList());
+            vListViewItems = callsPresenter.GetCallsGrByDirection();
 
-            //vListViewItems.Clear();
-            //foreach (var message in vPreparedMessages) {
-            //    string[] arr = new string[3];
-            //    arr[0] = message.Contact.MainNumber.ToString();
-            //    arr[1] = message.Contact.Name;
-            //    arr[2] = message;
-            //    vListViewItems.Add(new ListViewItem(arr));
-            //}
-            //CallsListView.Items.Clear();
-            //((IListViewOutput)vOutputComponent).WriteLines(vListViewItems);
+            CallsListView.Items.Clear();
+            ((IListViewOutput)vOutputComponent).WriteLines(vListViewItems);
         }
 
         private void InitializeListView() {
@@ -59,8 +56,7 @@ namespace evoPhone.GUI {
                 vCallGenerationThread.Stop();
                 EnableCallsBtn.Text = "Enable Calls";
                 IsCallGenerationRunning = false;
-            }
-            else {
+            } else {
                 vCallGenerationThread.Start();
                 EnableCallsBtn.Text = "Disable Calls";
                 IsCallGenerationRunning = true;

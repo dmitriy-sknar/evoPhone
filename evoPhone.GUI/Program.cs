@@ -15,10 +15,10 @@ namespace evoPhone.GUI {
             //var form = new PlaybackSelectOptForm(); 
             
             //Lab3,4,5 form
-            var form = new MessageFormattingForm();
+            // var form = new MessageFormattingForm();
 
             //Lab6 form
-            //var form = new CallHistoryForm();
+            var form = new CallHistoryForm();
             Application.Run(form);
         }
     }
